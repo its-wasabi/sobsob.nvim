@@ -111,7 +111,7 @@ return function()
 		bg_float     = gray.black_25,
 		bg_popup     = gray.black_10,
 
-		text_colored = colors.violet,
+		text_colored = colors.indigo,
 
 		selection    = "#5a4ab6",
 	};
