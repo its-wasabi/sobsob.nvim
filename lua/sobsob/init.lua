@@ -169,6 +169,7 @@ function M.setup(opts, palette)
 		"lsp.language.c",
 		"lsp.language.lua",
 		"lsp.language.rust",
+		"plugins.blink-cmp",
 		"plugins.gitsigns",
 		"plugins.indent-blankline",
 		"plugins.netrw",
