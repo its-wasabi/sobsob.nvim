@@ -107,9 +107,9 @@ return function()
 		bg           = gray.transparent,
 
 		bg_solid     = gray.black_100,
-		bg_shadow    = gray.black_50,
-		bg_float     = gray.black_25,
-		bg_popup     = gray.black_10,
+		bg_shadow    = gray.black_75,
+		bg_float     = gray.black_50,
+		bg_popup     = gray.black_50,
 
 		text_colored = colors.indigo,
 
