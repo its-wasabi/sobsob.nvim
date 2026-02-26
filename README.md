@@ -3,15 +3,7 @@
 # SobSob
 A wildcharm inspired color scheme for vim and nvim
 ## Examples
-![sobsob example](examples/sobsob-light.png)
-![hliphlip example](examples/hliphlip-dark.png)
-
-<details>
-<summary>more examples</summary>
-
-![Telescope](examples/Telescope.png)
-
-</details>
+![sobsob example](examples/rust-book-example.png)
 
 ## Installation 
 ### lazy.nvim (Recommended)
