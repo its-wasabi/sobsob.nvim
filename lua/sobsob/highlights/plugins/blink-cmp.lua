@@ -3,7 +3,7 @@ return function(cp)
 		-- Base UI
 		BlinkCmpMenu                = { link = "Pmenu" },
 		BlinkCmpMenuBorder          = { fg = cp.ui.fg_popup },
-		BlinkCmpMenuSelection       = { link = "Visual" },
+		BlinkCmpMenuSelection       = { link = "Visual", bold = true },
 		BlinkCmpLabel               = { fg = cp.ui.text_colored },
 		BlinkCmpLabelMatch          = { fg = cp.colors.magenta, bold = true },
 		BlinkCmpLabelDeprecated     = { fg = cp.ui.fg_popup, strikethrough = true },
