@@ -75,8 +75,10 @@ To check color palette and existing colors read [colors.lua](https://github.com/
 - [x] XML
 - [x] HTML
 - [X] JavaScript
+- [x] Json 
 - [X] Rust 
 - [X] Lua
+- [x] Nix
 <!-- - [ ] Haskell -->
 ---
 

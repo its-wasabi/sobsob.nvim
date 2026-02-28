@@ -1,4 +1,4 @@
-;; extends
+; extends
 
 ((number) @number.float
   (#lua-match? @number.float "^-?[0-9]*%.[0-9]+"))

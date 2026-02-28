@@ -1,0 +1,26 @@
+return function(cp)
+	return {
+		nixAttribute       = { link = "Identifier" },
+		nixString          = { link = "String" },
+		nixStringDelimiter = { link = "Delimiter" },
+		nixInterpolation   = { link = "Special" },
+		nixInteger         = { link = "Number" },
+		nixFloat           = { link = "Float" },
+		nixBoolean         = { link = "Boolean" },
+		nixNull            = { fg = cp.syntax.constants, bold = true },
+		nixOperator        = { link = "Operator" },
+		nixParen           = { link = "Delimiter" },
+		nixRecKeyword      = { link = "Keyword" },
+		nixLetKeyword      = { link = "Keyword" },
+		nixInKeyword       = { link = "Keyword" },
+		nixWithKeyword     = { link = "Keyword" },
+		nixIfKeyword       = { link = "Keyword" },
+		nixThenKeyword     = { link = "Keyword" },
+		nixElseKeyword     = { link = "Keyword" },
+		nixInheritKeyword  = { link = "Keyword" },
+		nixComment         = { link = "Comment" },
+		nixPath            = { fg = cp.syntax.special },
+		nixURI             = { fg = cp.syntax.special },
+		nixFunctionCall    = { link = "Function" },
+	}
+end
