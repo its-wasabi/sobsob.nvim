@@ -14,5 +14,7 @@ return function(cp)
 		["@lsp.type.static.rust"]          = { link = "Constant" },
 
 		["@lsp.type.namespace.rust"]       = { link = "Type" },
+
+		["@lsp.type.generic.rust"]         = { link = "Identifier" },
 	}
 end
