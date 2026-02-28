@@ -40,5 +40,7 @@ return function(cp)
 		["@punctuation.bracket"]   = { link = "Delimiter" },
 
 		["@module"]                = { link = "Type" },
+
+		["@conceal"]               = { link = "String" },
 	}
 end

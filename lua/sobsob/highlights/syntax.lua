@@ -12,6 +12,7 @@ return function(cp)
 		True           = { fg = cp.syntax["true"] },
 		False          = { fg = cp.syntax["false"] },
 		Number         = { fg = cp.syntax.numbers },
+		Integer        = { fg = cp.syntax.integers },
 		Float          = { fg = cp.syntax.floats },
 
 		Keyword        = { fg = cp.syntax.keywords },

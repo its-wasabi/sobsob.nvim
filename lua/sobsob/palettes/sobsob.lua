@@ -68,6 +68,7 @@ return function()
 		["false"] = colors.red,
 		["true"] = colors.lime,
 		numbers = colors.blue,
+		integers = colors.blue,
 		floats = colors.indigo,
 
 		keywords = colors.cyan,
