@@ -62,23 +62,22 @@ To check color palette and existing colors read [colors.lua](https://github.com/
 # Supported plugins
 - [x] Treesitter
 - [x] Lualine  
-- [ ] Telescope
-- [ ] Gitsigns
-- [ ] Which-key
+- [x] Telescope
+- [x] Gitsigns
+- [x] Which-key
 - [x] Render-markdown
-- [ ] Nvim-dap-view
-- [ ] Alpha
-- [ ] nvim-scrollbar 
+<!-- - [ ] Nvim-dap-view -->
+<!-- - [ ] Alpha -->
+<!-- - [ ] nvim-scrollbar  -->
 
-# Languages to which I paid special attention
+# Languages tested with colorscheme
 - [X] Plain text
-- [ ] XML
+- [x] XML
 - [x] HTML
-- [ ] CSS
 - [X] JavaScript
 - [X] Rust 
-- [ ] Haskell
 - [X] Lua
+<!-- - [ ] Haskell -->
 ---
 
 <div align="center">
