@@ -9,5 +9,10 @@ return function(cp)
 		["@lsp.type.string.rust"]          = {}, -- HACK: Remove lsp string for clean ts injections (without lsp overriding them)
 
 		["@lsp.type.formatSpecifier.rust"] = { link = "Special" },
+
+		["@lsp.type.const.rust"]           = { link = "Constant" },
+		["@lsp.type.static.rust"]          = { link = "Constant" },
+
+		["@lsp.type.namespace.rust"]       = { link = "Type" },
 	}
 end

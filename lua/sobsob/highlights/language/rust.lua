@@ -10,5 +10,10 @@ return function(cp)
 		rustSigil                     = { link = "Operator" },
 
 		["@punctuation.special.rust"] = { link = "Delimiter" },
+
+		rustAttribute                 = { link = "Delimiter" },
+		rustDerive                    = { link = "function" },
+		-- TODO: without Treesitter:
+		-- - rustDeriveTrait is linked to Type
 	}
 end
