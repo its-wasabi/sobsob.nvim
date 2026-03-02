@@ -39,5 +39,8 @@ return function(cp)
 		RenderMarkdownMath       = { fg = cp.colors.cyan },
 
 		RenderMarkdownSuccess    = { fg = cp.colors.green },
+
+		RenderMarkdownInfo       = { fg = cp.colors.cyan },
+		RenderMarkdownHint       = { fg = cp.diagnosis.hint },
 	}
 end
