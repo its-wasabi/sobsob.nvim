@@ -41,6 +41,6 @@ return function(cp)
 		RenderMarkdownSuccess    = { fg = cp.colors.green },
 
 		RenderMarkdownInfo       = { fg = cp.colors.cyan },
-		RenderMarkdownHint       = { fg = cp.diagnosis.hint },
+		RenderMarkdownHint       = { fg = cp.diagnostics.hint },
 	}
 end
