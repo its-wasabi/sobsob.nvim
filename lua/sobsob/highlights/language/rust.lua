@@ -15,5 +15,7 @@ return function(cp)
 		rustDerive                    = { link = "function" },
 		-- TODO: without Treesitter:
 		-- - rustDeriveTrait is linked to Type
+
+		rustIdentifier                = { link = "Type" }
 	}
 end
