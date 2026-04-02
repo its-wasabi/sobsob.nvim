@@ -21,6 +21,6 @@ return function(cp)
 		["@lsp.mod.intraDocLink.rust"]       = { fg = "#d39321" },
 		["@lsp.mod.injected.rust"]           = { italic = true },
 
-		["@lsp.typemod.keyword.unsafe.rust"] = { fg = cp.syntax.special }
+		["@lsp.typemod.keyword.unsafe.rust"] = { fg = cp.syntax.special, bold = true }
 	}
 end
