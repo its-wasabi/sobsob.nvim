@@ -31,7 +31,7 @@ return function(cp)
 		WinBarNC                 = { fg = cp.ui.fg, bg = cp.ui.bg_float },
 
 		TabLine                  = { fg = cp.ui.fg_float, bg = cp.ui.bg_float, },
-		TabLineSel               = { fg = cp.ui.text_colored, bg = cp.ui.bg, bold = true },
+		TabLineSel               = { fg = cp.ui.text_colored, bg = cp.ui.bg_popup, bold = true },
 		TabLineFill              = { bg = cp.ui.bg_float },
 
 		VertSplit                = { fg = cp.gray.white_100, bg = cp.ui.bg, bold = false, italic = false },
@@ -49,6 +49,10 @@ return function(cp)
 		Hint                     = { fg = cp.diagnostics.hint },
 		Warn                     = { fg = cp.diagnostics.warn },
 		Error                    = { fg = cp.diagnostics.error },
+
+		-- TODO: Maybe add config option which states if bg is transparent and if is then enable the bg colors additionally
+		-- DiagnosticUnderlineWarn  = { bg = cp.ui.bg_popup, underline = true, sp = cp.diagnostics.warn, bold = true },
+		-- DiagnosticUnderlineError = { bg = cp.ui.bg_popup, underline = true, sp = cp.diagnostics.error, bold = true },
 
 		DiagnosticInfo           = { link = "Info" },
 		DiagnosticUnderlineInfo  = { underline = true, sp = cp.diagnostics.info, bold = true },

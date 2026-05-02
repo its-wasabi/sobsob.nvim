@@ -1,3 +1,6 @@
+-- TODO: Change all appearance related options to be just function like in other files but in user
+-- opts table instead here
+
 local M = {};
 local saved_opts;
 local last_palette;
@@ -36,16 +39,16 @@ local function get_cp(palette)
 	local path = "sobsob.palettes." .. palette;
 	local ok, mod = pcall(require, path);
 	if not ok then
-		error("Pallete not found: " .. palette .. " at " .. path);
+		error("Palette not found: " .. palette .. " at " .. path);
 	end
 
 	if type(mod) ~= "function" then
-		error("Pallete (" .. palette .. ") must return a function: " .. path);
+		error("Palette (" .. palette .. ") must return a function: " .. path);
 	end
 
 	local ok_call, cp = pcall(mod);
 	if not ok_call or type(cp) ~= "table" then
-		error("Pallete " .. palette .. " returned invalid data");
+		error("Palette " .. palette .. " returned invalid data");
 	end
 
 	return cp;
@@ -74,7 +77,7 @@ local function get_hl(modules, cp)
 		elseif type(mod) == "table" then
 			result = mod;
 		else
-			notify("Invalide highlight module type: " .. name .. " at " .. path);
+			notify("Invalid highlight module type: " .. name .. " at " .. path);
 			goto continue;
 		end
 
@@ -100,9 +103,9 @@ local function override_cp(cp, opts)
 
 	for color, hex in pairs(opts.cp) do
 		if type(hex) ~= "string" then
-			notify("Invalid color value for " .. color);
+			notify("Invalid color value for " .. tostring(color));
 		elseif cp[color] == nil then
-			notify("Unknown pallette color: ", color);
+			notify("Unknown palette color: " .. tostring(color));
 		else
 			cp[color] = hex;
 		end
@@ -110,11 +113,9 @@ local function override_cp(cp, opts)
 end
 
 local function override_modules(modules, opts)
-	if type(opts.modules) ~= "table" then
-		return;
-	end
+	if type(opts.modules) ~= "table" then return end;
 
-	for name, path in pairs(opts.modules) do
+	for _, name in ipairs(opts.modules) do
 		if type(name) ~= "string" or type(path) ~= "string" then
 			notify("Invalid module override entry ");
 		else
@@ -164,6 +165,7 @@ function M.setup(opts, palette)
 		"language.nix",
 		"language.python",
 		"language.rust",
+		"language.tsx",
 		"language.typescript",
 		"language.zsh",
 		"language.xml",
@@ -179,6 +181,7 @@ function M.setup(opts, palette)
 		"plugins.sniprun",
 		"plugins.which-key",
 		"plugins.telescope",
+		"plugins.tree-sitter-context",
 	};
 
 	override_modules(modules, opts)
