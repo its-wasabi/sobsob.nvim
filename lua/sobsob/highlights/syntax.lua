@@ -25,7 +25,7 @@ return function(cp)
 		StorageClass   = { fg = cp.syntax.keywords },
 		Structure      = { fg = cp.syntax.keywords },
 
-		Function       = { fg = cp.syntax.functions },
+		Function       = { fg = cp.syntax.functions, italic = true },
 		Label          = { fg = cp.syntax.functions },
 
 		Operator       = { fg = cp.syntax.operators },

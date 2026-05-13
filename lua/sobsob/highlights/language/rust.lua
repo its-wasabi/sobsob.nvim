@@ -12,7 +12,7 @@ return function(cp)
 		["@punctuation.special.rust"] = { link = "Delimiter" },
 
 		rustAttribute                 = { link = "Delimiter" },
-		rustDerive                    = { link = "function" },
+		rustDerive                    = { link = "Function" },
 		-- TODO: without Treesitter:
 		-- - rustDeriveTrait is linked to Type
 

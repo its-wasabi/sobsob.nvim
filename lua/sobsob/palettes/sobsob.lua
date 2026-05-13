@@ -86,20 +86,19 @@ return function()
 	};
 
 	local diagnostics = {
-		ok           = "#005a2e",
-		info         = "#004d63",
-		hint         = "#783867",
-		warn         = "#804700",
-		error        = "#802040",
+		ok           = "#2eb87a",
+		info         = "#2a9ab8",
+		hint         = "#a06898",
+		warn         = "#cc8833",
+		error        = "#cc3355",
 
-		git_add      = "#1f6243",
+		git_add      = "#2f8b43",
 		git_add_dimm = "#162e1a",
-		git_mod      = "#8a6a1e",
+		git_mod      = "#b89030",
 		git_mod_dimm = "#3b2f18",
-		git_del      = "#943d3d",
+		git_del      = "#b84040",
 		git_del_dimm = "#3b1f1f",
 	};
-
 	local ui = {
 		fg           = gray.white_100,
 		fg_float     = gray.white_75,
@@ -110,7 +109,7 @@ return function()
 		bg_solid     = gray.black_100,
 		bg_shadow    = gray.black_75,
 		bg_float     = gray.black_50,
-		bg_popup     = gray.black_50,
+		bg_popup     = gray.black_25,
 
 		text_colored = colors.indigo,
 
