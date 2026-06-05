@@ -174,6 +174,7 @@ function M.setup(opts, palette)
 		"lsp.language.lua",
 		"lsp.language.rust",
 		"plugins.blink-cmp",
+		"plugins.fugitive",
 		"plugins.gitsigns",
 		"plugins.indent-blankline",
 		"plugins.netrw",
