@@ -1,6 +1,6 @@
 return function(cp)
 	return {
-		["gitDiff"] = { fg = cp.syntax.variables },
+		["gitDiff"] = { fg = cp.ui.fg },
 
 		["diffAdded"] = { fg = cp.diagnostics.git_add },
 		["diffRemoved"] = { fg = cp.diagnostics.git_del },
