@@ -7,8 +7,8 @@ return function(cp)
 
 		["diffLine"] = { fg = cp.diagnostics.git_mod },
 
-		["diffNewFile"] = { fg = cp.syntax.keywords },
-		["diffOldFile"] = { fg = cp.syntax.keywords },
+		["diffNewFile"] = { fg = cp.diagnostics.git_add_dimm },
+		["diffOldFile"] = { fg = cp.diagnostics.git_del_dimm },
 		["diffFile"] = { fg = cp.syntax.keywords },
 	}
 end
