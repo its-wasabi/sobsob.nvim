@@ -92,11 +92,11 @@ return function()
 		warn         = "#cc8833",
 		error        = "#cc3355",
 
-		git_add      = "#2f8b43",
+		git_add      = colors.lime,
 		git_add_dimm = "#162e1a",
-		git_mod      = "#b89030",
+		git_mod      = colors.yellow,
 		git_mod_dimm = "#3b2f18",
-		git_del      = "#b84040",
+		git_del      = colors.red,
 		git_del_dimm = "#3b1f1f",
 	};
 	local ui = {
