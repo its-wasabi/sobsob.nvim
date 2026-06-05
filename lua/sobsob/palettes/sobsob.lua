@@ -97,7 +97,7 @@ return function()
 		git_mod      = colors.yellow,
 		git_mod_dimm = "#3b2f18",
 		git_del      = colors.red,
-		git_del_dimm = "#2a0f14",
+		git_del_dimm = "#340f14",
 	};
 	local ui = {
 		fg           = gray.white_100,
