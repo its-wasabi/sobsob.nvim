@@ -14,14 +14,16 @@ local function flat_highlights()
 		local rel_path = file:sub(#highlights_dir + 2, -5)
 		local module_name = "sobsob.highlights." .. rel_path:gsub("[/\\]", ".")
 
-		local generator = require(module_name)
-		if type(generator) == "function" then
+		local ok, generator = pcall(require, module_name)
+
+		if ok and type(generator) == "function" then
 			local hls = generator(palette)
 			for group, color in pairs(hls) do
 				merged[group] = color
 			end
 		else
-			vim.notify("sobsob: " .. module_name .. "did not return a function", vim.log.levels.ERROR)
+			local err_msg = not ok and tostring(generator) or "did not return a function"
+			vim.notify("sobsob: " .. module_name .. " error - " .. err_msg, vim.log.levels.ERROR)
 		end
 	end
 
@@ -44,9 +46,12 @@ end
 local function compile()
 	local highlights = flat_highlights()
 
-	local lines = { "return string.dump(function()" }
+	local lines = {
+		"return string.dump(function()",
+		"local h = vim.api.nvim_set_hl"
+	}
 	for group, color in pairs(highlights) do
-		table.insert(lines, string.format('vim.api.nvim_set_hl(0, "%s", %s)', group, style_to_string(color)))
+		table.insert(lines, string.format('h(0, "%s", %s)', group, style_to_string(color)))
 	end
 	table.insert(lines, "end, true)")
 
@@ -84,8 +89,14 @@ function M.load()
 end
 
 vim.api.nvim_create_user_command("SobsobCompile", function()
+	for pkg, _ in pairs(package.loaded) do
+		if pkg:match("^sobsob%.highlights") or pkg == "sobsob.palette" then
+			package.loaded[pkg] = nil
+		end
+	end
+
 	compile()
-	vim.notify("sobsob compiled", vim.log.levels.INFO)
+	vim.notify("sobsob compiled successfully!", vim.log.levels.INFO)
 	vim.cmd.colorscheme("sobsob")
 end, {})
 
