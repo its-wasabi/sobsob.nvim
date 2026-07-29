@@ -30,7 +30,7 @@ return function(cp)
 		RenderMarkdownQuote6     = { fg = cp.gradient.lv6_dimm },
 
 		RenderMarkdownTableHead  = { fg = cp.colors.yellow },
-		RenderMarkdownTableRow   = { fg = cp.colors.purple },
+		RenderMarkdownTableRow   = { fg = cp.colors.magenta },
 		RenderMarkdownTableFill  = {},
 
 		RenderMarkdownLink       = { fg = cp.colors.cyan },
