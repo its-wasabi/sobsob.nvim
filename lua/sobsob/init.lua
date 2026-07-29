@@ -1,205 +1,92 @@
--- TODO: Change all appearance related options to be just function like in other files but in user
--- opts table instead here
-
+local palette = require("sobsob.palette")
 local M = {};
-local saved_opts;
-local last_palette;
+local cached_path = vim.fn.stdpath("cache") .. "/sobsob.luac"
 
-local function notify(msg, lvl)
-	vim.notify(
-		"[sobsob]: " .. msg,
-		lvl or vim.log.levels.WARN
-	);
-end
+local function flat_highlights()
+	local current_file = debug.getinfo(1, "S").source:sub(2)
+	local base_dir = vim.fn.fnamemodify(current_file, ":h")
+	local highlights_dir = base_dir .. "/highlights"
 
-local function merge(target, ...)
-	for _, t in ipairs({ ... }) do
-		if type(t) == "table" then
-			for k, v in pairs(t) do
-				target[k] = v
+	local files = vim.fn.globpath(highlights_dir, "**/*.lua", false, true)
+
+	local merged = {}
+	for _, file in ipairs(files) do
+		local rel_path = file:sub(#highlights_dir + 2, -5)
+		local module_name = "sobsob.highlights." .. rel_path:gsub("[/\\]", ".")
+
+		local generator = require(module_name)
+		if type(generator) == "function" then
+			local hls = generator(palette)
+			for group, color in pairs(hls) do
+				merged[group] = color
 			end
-		end
-	end
-	return target
-end
-
-local function set_hl(hl)
-	for group, style in pairs(hl) do
-		if type(group) ~= "string" then
-			notify("Invalid highlights group type: " .. tostring(group));
-		elseif type(style) ~= "table" then
-			notify("Invalid style type for highlight group: " .. group);
 		else
-			vim.api.nvim_set_hl(0, group, style);
+			vim.notify("sobsob: " .. module_name .. "did not return a function", vim.log.levels.ERROR)
 		end
 	end
+
+	return merged
 end
 
-local function get_cp(palette)
-	local path = "sobsob.palettes." .. palette;
-	local ok, mod = pcall(require, path);
-	if not ok then
-		error("Palette not found: " .. palette .. " at " .. path);
+local function style_to_string(color)
+	local parts = {}
+	for k, v in pairs(color) do
+		if type(v) == "string" then
+			table.insert(parts, string.format('%s="%s"', k, v))
+		elseif type(v) == "boolean" or type(v) == "number" then
+			table.insert(parts, string.format('%s=%s', k, tostring(v)))
+		end
 	end
 
-	if type(mod) ~= "function" then
-		error("Palette (" .. palette .. ") must return a function: " .. path);
-	end
-
-	local ok_call, cp = pcall(mod);
-	if not ok_call or type(cp) ~= "table" then
-		error("Palette " .. palette .. " returned invalid data");
-	end
-
-	return cp;
+	return "{" .. table.concat(parts, ",") .. "}"
 end
 
-local function get_hl(modules, cp)
-	local hl = {};
+local function compile()
+	local highlights = flat_highlights()
 
-	for _, name in ipairs(modules) do
-		local path = "sobsob.highlights." .. name;
-		local ok, mod = pcall(require, path);
+	local lines = { "return string.dump(function()" }
+	for group, color in pairs(highlights) do
+		table.insert(lines, string.format('vim.api.nvim_set_hl(0, "%s", %s)', group, style_to_string(color)))
+	end
+	table.insert(lines, "end, true)")
 
-		if not ok then
-			notify("Missing highlight module: " .. name);
-			goto continue;
-		end
+	local code_str = table.concat(lines, "\n")
+	local bytecode = loadstring(code_str)
 
-		local result;
-		if type(mod) == "function" then
-			local ok_call;
-			ok_call, result = pcall(mod, cp);
-			if not ok_call then
-				notify("Error in highlights module: " .. name .. " at " .. path);
-				goto continue;
-			end
-		elseif type(mod) == "table" then
-			result = mod;
-		else
-			notify("Invalid highlight module type: " .. name .. " at " .. path);
-			goto continue;
-		end
-
-		if type(result) ~= "table" then
-			notify("Invalid highlights in " .. name .. " at " .. path);
-		else
-			merge(hl, result);
-		end
-
-		::continue::
+	if not bytecode then
+		error("Failed to parse sobsob theme code")
 	end
 
-	return hl;
-end
+	local binary = bytecode()
 
-local function override_cp(cp, opts)
-	if type(opts.cp) ~= "table" then
-		if opts.cp ~= nil then
-			notify("opts.cp must be a table");
-		end
-		return;
-	end
-
-	for color, hex in pairs(opts.cp) do
-		if type(hex) ~= "string" then
-			notify("Invalid color value for " .. tostring(color));
-		elseif cp[color] == nil then
-			notify("Unknown palette color: " .. tostring(color));
-		else
-			cp[color] = hex;
-		end
-	end
-end
-
-local function override_modules(modules, opts)
-	if type(opts.modules) ~= "table" then return end;
-
-	for _, name in ipairs(opts.modules) do
-		if type(name) ~= "string" or type(path) ~= "string" then
-			notify("Invalid module override entry ");
-		else
-			modules[name] = path;
-		end
-	end
-end
-
-local function override_hl(hl, opts)
-	if type(opts.hl) ~= "table" then
-		return;
-	end
-
-	for group, style in pairs(opts.hl) do
-		if type(group) ~= "string" or type(style) ~= "table" then
-			notify("Invalid highlight override: " .. tostring(group));
-		else
-			hl[group] = style;
-		end
-	end
-end
-
-function M.setup(opts, palette)
-	opts = opts or {};
-	saved_opts = opts;
-
-	palette = palette or last_palette or "sobsob";
-	last_palette = palette;
-
-	local cp = get_cp(palette);
-	override_cp(cp, opts);
-
-	local modules = {
-		"common",
-		"syntax",
-		"treesitter",
-		"language.bash",
-		"language.c",
-		"language.css",
-		-- "language.haskell",
-		"language.html",
-		"language.hyprlang",
-		"language.javascript",
-		"language.json",
-		"language.lua",
-		"language.markdown",
-		"language.nix",
-		"language.python",
-		"language.rust",
-		"language.tsx",
-		"language.typescript",
-		"language.zsh",
-		"language.xml",
-		"lsp.common",
-		"lsp.language.c",
-		"lsp.language.lua",
-		"lsp.language.rust",
-		"plugins.blink-cmp",
-		"plugins.fugitive",
-		"plugins.gitsigns",
-		"plugins.indent-blankline",
-		"plugins.netrw",
-		"plugins.render_markdown",
-		"plugins.sniprun",
-		"plugins.which-key",
-		"plugins.telescope",
-		"plugins.tree-sitter-context",
-	};
-
-	override_modules(modules, opts)
-
-	local hl = get_hl(modules, cp);
-	override_hl(hl, opts);
-
-	set_hl(hl);
-end
-
-function M.reload(palette, opts)
-	if saved_opts ~= nil then
-		M.setup(saved_opts, palette);
+	local file = io.open(cached_path, "wb")
+	if file then
+		file:write(binary)
+		file:close()
 	else
-		opts = opts or {};
-		M.setup(opts, palette);
+		error("Could not write to cache path: " .. cached_path)
+	end
+
+	return loadstring(binary)
+end
+
+function M.load()
+	local file = loadfile(cached_path)
+	if not file then
+		file = compile()
+	end
+
+	if file then
+		file()
+	else
+		error("Failed to load sobsob colorscheme")
 	end
 end
 
-return M;
+vim.api.nvim_create_user_command("SobsobCompile", function()
+	compile()
+	vim.notify("sobsob compiled", vim.log.levels.INFO)
+	vim.cmd.colorscheme("sobsob")
+end, {})
+
+return M
