@@ -16,7 +16,7 @@ return function(cp)
 		CursorLine               = { bg = cp.ui.bg_shadow },
 		ColorColumn              = { bg = cp.ui.bg_shadow },
 
-		MatchParen               = { fg = cp.gray.black_100, bg = cp.colors.magenta, bold = true },
+		MatchParen               = { bg = cp.gray.white_10, bold = true },
 
 		LineNr                   = { fg = cp.ui.fg_popup },
 		CursorLineNr             = { fg = cp.ui.fg },
