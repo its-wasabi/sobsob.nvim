@@ -54,14 +54,17 @@ return function(cp)
 		-- DiagnosticUnderlineWarn  = { bg = cp.ui.bg_popup, underline = true, sp = cp.diagnostics.warn, bold = true },
 		-- DiagnosticUnderlineError = { bg = cp.ui.bg_popup, underline = true, sp = cp.diagnostics.error, bold = true },
 
-		DiagnosticInfo           = { link = "Info" },
-		DiagnosticUnderlineInfo  = { underline = true, sp = cp.colors.diagnostics.info, bold = true },
-		DiagnosticHint           = { link = "Hint" },
-		DiagnosticUnderlineHint  = { underline = true, sp = cp.colors.diagnostics.hint, bold = true },
-		DiagnosticWarn           = { link = "Warn" },
-		DiagnosticUnderlineWarn  = { underline = true, sp = cp.colors.diagnostics.warn, bold = true },
-		DiagnosticError          = { link = "Error" },
-		DiagnosticUnderlineError = { underline = true, sp = cp.colors.diagnostics.error, bold = true },
+		DiagnosticInfo           = { fg = cp.colors.diagnostics.info_dimm, italic = true },
+		DiagnosticUnderlineInfo  = { underline = true, sp = cp.colors.diagnostics.info_dimm, bold = true },
+
+		DiagnosticHint           = { fg = cp.colors.diagnostics.hint_dimm, italic = true },
+		DiagnosticUnderlineHint  = { underline = true, sp = cp.colors.diagnostics.hint_dimm, bold = true },
+
+		DiagnosticWarn           = { fg = cp.colors.diagnostics.warn_dimm, italic = true },
+		DiagnosticUnderlineWarn  = { underline = true, sp = cp.colors.diagnostics.warn_dimm, bold = true },
+
+		DiagnosticError          = { fg = cp.colors.diagnostics.error_dimm, italic = true },
+		DiagnosticUnderlineError = { underline = true, sp = cp.colors.diagnostics.error_dimm, bold = true },
 
 		DiffAdd                  = { fg = cp.colors.misc.add, bg = cp.colors.misc.add_dimm, bold = true },
 		DiffChange               = { fg = cp.colors.misc.mod, bg = cp.colors.misc.mod_dimm, bold = true },

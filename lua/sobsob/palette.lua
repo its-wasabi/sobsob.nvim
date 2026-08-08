@@ -1,5 +1,4 @@
 ---@alias Color string
----@alias ColorMap table<string, Color>
 
 ---@class Gradient
 ---@field lv1 Color
@@ -19,10 +18,15 @@
 
 ---@class Diagnostics
 ---@field ok Color
+---@field ok_dimm Color
 ---@field info Color
+---@field info_dimm Color
 ---@field hint Color
+---@field hint_dimm Color
 ---@field warn Color
+---@field warn_dimm Color
 ---@field error Color
+---@field error_dimm Color
 
 ---@class Misc
 ---@field add Color
@@ -105,14 +109,24 @@ local colors = {
 	},
 
 	diagnostics = {
-		ok    = "#34a374",
-		info  = "#469bc4",
-		hint  = "#927bbd",
-		warn  = "#d2b05e",
-		error = "#d8506b",
+		ok         = "#34a374",
+		ok_dimm    = "#1e7a55",
+
+		info       = "#469bc4",
+		info_dimm  = "#1f7294",
+
+		hint       = "#927bbd",
+		hint_dimm  = "#6a3b94",
+
+		warn       = "#d2b05e",
+		warn_dimm  = "#9e711c",
+
+		error      = "#d8506b",
+		error_dimm = "#a12344",
 	},
 
-	misc        = {
+
+	misc = {
 		add      = "#22e07c",
 		add_dimm = "#09281a",
 
@@ -126,6 +140,28 @@ local colors = {
 
 }
 
+---@class Syntax
+---@field comments Color
+---@field variables Color
+---@field constants Color
+---@field strings Color
+---@field character Color
+---@field booleans Color
+---@field ["false"] Color
+---@field ["true"] Color
+---@field numbers Color
+---@field integers Color
+---@field floats Color
+---@field keywords Color
+---@field types Color
+---@field functions Color
+---@field operators Color
+---@field punctuation Color
+---@field special Color
+---@field preprocs Color
+---@field delimiters Color
+
+---@type Syntax
 local syntax = {
 	comments = colors.g50,
 
@@ -155,6 +191,18 @@ local syntax = {
 	delimiters = colors.violet,
 };
 
+---@class Ui
+---@field fg Color
+---@field fg_dimm Color
+---@field fg_dark Color
+---@field fg_colored Color
+---@field bg Color
+---@field bg_shadow Color
+---@field bg_float Color
+---@field bg_popup Color
+---@field selection Color
+
+---@type Ui
 local ui = {
 	fg         = colors.g100,
 	fg_dimm    = colors.g50,
@@ -170,6 +218,15 @@ local ui = {
 	selection  = "#5a4ab6",
 };
 
+---@class Modes
+---@field normal Color
+---@field insert Color
+---@field visual Color
+---@field replace Color
+---@field command Color
+---@field inactive Color
+
+---@type Modes
 local modes = {
 	normal = colors.cyan,
 	insert = colors.green,
@@ -181,9 +238,9 @@ local modes = {
 
 ---@class Palette
 ---@field colors Colors
----@field modes ColorMap
----@field syntax ColorMap
----@field ui ColorMap
+---@field modes Modes
+---@field syntax Syntax
+---@field ui Ui
 
 ---@type Palette
 local palette = {

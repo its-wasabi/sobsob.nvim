@@ -24,6 +24,7 @@ return function(cp)
 		["@lsp.type.derive.rust"]                = { link = "Special" },
 		["@lsp.typemod.operator.attribute.rust"] = { link = "Delimiter" },
 
-		["@lsp.type.selfTypeKeyword.rust"]       = { link = "Special" }
+		["@lsp.type.selfTypeKeyword.rust"]       = { link = "Special" },
+		["@lsp.type.selfKeyword.rust"]           = { bold = true },
 	}
 end

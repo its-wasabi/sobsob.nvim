@@ -1,7 +1,7 @@
 return function(cp)
 	return {
 		Comment        = { fg = cp.syntax.comments, italic = true, },
-		SpecialComment = { fg = cp.syntax.comments },
+		SpecialComment = { fg = cp.syntax.comments, italic = true, bold = true },
 
 		Identifier     = { fg = cp.syntax.variables },
 		Constant       = { fg = cp.syntax.constants, bold = true },

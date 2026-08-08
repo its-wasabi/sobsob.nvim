@@ -1,3 +1,4 @@
+-- TODO: Update that file to use newest colors
 return function(cp)
 	return {
 		-- Base UI
@@ -9,7 +10,7 @@ return function(cp)
 		BlinkCmpLabelDeprecated     = { fg = cp.ui.fg_popup, strikethrough = true },
 		BlinkCmpLabelDescription    = { fg = cp.ui.fg_popup },
 		BlinkCmpSource              = { fg = cp.ui.fg_popup, italic = true },
-		BlinkCmpGhostText           = { fg = cp.ui.fg_popup, italic = true },
+		BlinkCmpGhostText           = { fg = cp.colors.g50, italic = true },
 		BlinkCmpDoc                 = { link = "NormalFloat" },
 		BlinkCmpDocBorder           = { fg = cp.ui.fg_popup },
 		BlinkCmpDocCursorLine       = { link = "CursorLine" },
