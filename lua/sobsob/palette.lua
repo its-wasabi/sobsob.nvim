@@ -1,65 +1,136 @@
-local gray = {
-	white_100   = "#ffffff",
-	white_90    = "#e6e6e6",
-	white_75    = "#d0d0d0",
-	white_50    = "#999999",
-	white_25    = "#666666",
-	white_10    = "#333333",
+---@alias Color string
+---@alias ColorMap table<string, Color>
 
-	black_10    = "#242424",
-	black_25    = "#1c1c1c",
-	black_50    = "#121212",
-	black_75    = "#0a0a0f",
-	black_100   = "#000000",
+---@class Gradient
+---@field lv1 Color
+---@field lv1_dimm Color
+---@field lv2 Color
+---@field lv2_dimm Color
+---@field lv3 Color
+---@field lv3_dimm Color
+---@field lv4 Color
+---@field lv4_dimm Color
+---@field lv5 Color
+---@field lv5_dimm Color
+---@field lv6 Color
+---@field lv6_dimm Color
+---@field lv7 Color
+---@field lv7_dimm Color
 
-	transparent = "NONE",
-};
+---@class Diagnostics
+---@field ok Color
+---@field info Color
+---@field hint Color
+---@field warn Color
+---@field error Color
 
+---@class Misc
+---@field add Color
+---@field add_dimm Color
+---@field mod Color
+---@field mod_dimm Color
+---@field del Color
+---@field del_dimm Color
+
+---@class Colors
+---@field transparent Color
+---@field g0 Color
+---@field g10 Color
+---@field g15 Color
+---@field g20 Color
+---@field g50 Color
+---@field g100 Color
+---@field teal Color
+---@field cyan Color
+---@field blue Color
+---@field indigo Color
+---@field violet Color
+---@field orchid Color
+---@field magenta Color
+---@field pink Color
+---@field red Color
+---@field yellow Color
+---@field green Color
+---@field lime Color
+---@field gradient Gradient
+---@field diagnostics Diagnostics
+---@field misc Misc
+
+---@type Colors
 local colors = {
-	teal    = "#00d9ba",
-	cyan    = "#00d4ff",
-	blue    = "#4d9fff",
-	indigo  = "#6A7BFF",
-	violet  = "#875fff",
-	purple  = "#ff87ff",
-	fuchsia = "#ff55d9",
-	magenta = "#ff0ac4",
-	pink    = "#FF3388",
-	red     = "#ff001a",
-	orange  = "#ff6b35",
-	yellow  = "#ffd000",
-	lime    = "#7fff00",
-	green   = "#00d85f",
-};
+	transparent = "NONE",
 
-local gradient = {
-	lv1      = "#ff9dff",
-	lv1_dimm = "#2a1430",
+	g0          = "#000000",
+	g10         = "#0d0d0d",
+	g15         = "#141414",
+	g20         = "#1c1c1c",
+	g50         = "#888888",
+	g100        = "#ffffff",
 
-	lv2      = "#ff4fd8",
-	lv2_dimm = "#33122a",
+	teal        = "#00d9ba",
+	cyan        = "#00d4ff",
+	blue        = "#4d9fff",
+	indigo      = "#6a7bff",
+	violet      = "#875fff",
 
-	lv3      = "#d43bff",
-	lv3_dimm = "#361540",
+	orchid      = "#ff87ff",
+	magenta     = "#ff4ac4",
+	pink        = "#ff2f84",
+	red         = "#ff0033",
+	yellow      = "#ffd000",
+	lime        = "#7fff00",
+	green       = "#00d85f",
 
-	lv4      = "#8826ff",
-	lv4_dimm = "#2a1145",
+	gradient    = {
+		lv1      = "#ff9dff",
+		lv1_dimm = "#2a1430",
 
-	lv5      = "#5e2fff",
-	lv5_dimm = "#1f1048",
+		lv2      = "#ff4fd8",
+		lv2_dimm = "#33122a",
 
-	lv6      = "#3a2bff",
-	lv6_dimm = "#160f45",
+		lv3      = "#d43bff",
+		lv3_dimm = "#361540",
 
-	lv7      = "#3f39d8",
-	lv7_dimm = "#141735",
+		lv4      = "#8826ff",
+		lv4_dimm = "#2a1145",
+
+		lv5      = "#5e2fff",
+		lv5_dimm = "#1f1048",
+
+		lv6      = "#3a2bff",
+		lv6_dimm = "#160f45",
+
+		lv7      = "#3f39d8",
+		lv7_dimm = "#141735",
+	},
+
+	diagnostics = {
+		ok    = "#34a374",
+		info  = "#469bc4",
+		hint  = "#927bbd",
+		warn  = "#d2b05e",
+		error = "#d8506b",
+	},
+
+	misc        = {
+		add      = "#22e07c",
+		add_dimm = "#09281a",
+
+		mod      = "#ffd166",
+		mod_dimm = "#2b230d",
+
+		del      = "#ff3d63",
+		del_dimm = "#2f0c18",
+
+	}
+
 }
 
 local syntax = {
-	comments = gray.white_50,
+	comments = colors.g50,
 
-	variables = colors.purple,
-	constants = colors.magenta,
+	variables = colors.orchid,
+	constants = colors.pink,
 
 	strings = colors.green,
 	character = colors.lime,
@@ -72,7 +143,7 @@ local syntax = {
 
 	keywords = colors.cyan,
 	types = colors.yellow,
-	functions = colors.fuchsia,
+	functions = colors.magenta,
 
 	operators = colors.magenta,
 	punctuation = colors.violet,
@@ -84,35 +155,19 @@ local syntax = {
 	delimiters = colors.violet,
 };
 
-local diagnostics = {
-	ok           = "#2eb87a",
-	info         = "#2a9ab8",
-	hint         = "#a06898",
-	warn         = "#cc8833",
-	error        = "#cc3355",
-
-	git_add      = colors.lime,
-	git_add_dimm = "#162e1a",
-	git_mod      = colors.yellow,
-	git_mod_dimm = "#3b2f18",
-	git_del      = colors.red,
-	git_del_dimm = "#340f14",
-};
 local ui = {
-	fg           = gray.white_100,
-	fg_float     = gray.white_75,
-	fg_popup     = gray.white_25,
+	fg         = colors.g100,
+	fg_dimm    = colors.g50,
+	fg_dark    = colors.g0,
 
-	bg           = gray.transparent,
+	fg_colored = colors.indigo,
 
-	bg_solid     = gray.black_100,
-	bg_shadow    = gray.black_75,
-	bg_float     = gray.black_50,
-	bg_popup     = gray.black_25,
+	bg         = colors.transparent,
+	bg_shadow  = colors.g10,
+	bg_float   = colors.g15,
+	bg_popup   = colors.g20,
 
-	text_colored = colors.indigo,
-
-	selection    = "#5a4ab6",
+	selection  = "#5a4ab6",
 };
 
 local modes = {
@@ -121,15 +176,21 @@ local modes = {
 	visual = colors.yellow,
 	replace = colors.pink,
 	command = colors.violet,
-	inactive = gray.white_50,
+	inactive = colors.g50,
 };
 
-return {
-	gray = gray,
+---@class Palette
+---@field colors Colors
+---@field modes ColorMap
+---@field syntax ColorMap
+---@field ui ColorMap
+
+---@type Palette
+local palette = {
 	colors = colors,
-	gradient = gradient,
-	syntax = syntax,
-	diagnostics = diagnostics,
-	ui = ui,
 	modes = modes,
+	syntax = syntax,
+	ui = ui,
 };
+
+return palette;

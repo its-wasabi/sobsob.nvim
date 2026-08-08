@@ -43,8 +43,8 @@ return function(cp)
 		Tag            = { fg = cp.syntax.delimiters },
 
 		Underlined     = { fg = cp.colors.blue, underline = true },
-		Ignore         = { fg = cp.gray.white_10 },
-		Error          = { fg = cp.diagnostics.error, bold = true },
-		Todo           = { fg = cp.diagnostics.warn, bold = true }
+		Ignore         = { fg = cp.colors.g10 },
+		Error          = { fg = cp.colors.diagnostics.error, bold = true },
+		Todo           = { fg = cp.colors.diagnostics.warn, bold = true }
 	}
 end

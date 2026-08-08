@@ -16,10 +16,10 @@ return function(cp)
 		CursorLine               = { bg = cp.ui.bg_shadow },
 		ColorColumn              = { bg = cp.ui.bg_shadow },
 
-		MatchParen               = { bg = cp.gray.white_10, bold = true },
+		MatchParen               = { bg = cp.colors.g50, bold = true },
 
-		LineNr                   = { fg = cp.ui.fg_popup },
-		CursorLineNr             = { fg = cp.ui.fg },
+		LineNr                   = { fg = cp.ui.fg_dimm },
+		CursorLineNr             = { link = "LineNr", reverse = true },
 
 		Visual                   = { reverse = true, bold = true },
 		Search                   = { bg = cp.ui.selection, bold = true },
@@ -31,11 +31,11 @@ return function(cp)
 		WinBarNC                 = { fg = cp.ui.fg, bg = cp.ui.bg_float },
 
 		TabLine                  = { fg = cp.ui.fg_float, bg = cp.ui.bg_float, },
-		TabLineSel               = { fg = cp.ui.text_colored, bg = cp.ui.bg_popup, bold = true },
+		TabLineSel               = { fg = cp.ui.fg_colored, bg = cp.ui.bg_popup, bold = true },
 		TabLineFill              = { bg = cp.ui.bg_float },
 
-		VertSplit                = { fg = cp.gray.white_100, bg = cp.ui.bg, bold = false, italic = false },
-		WinSeparator             = { fg = cp.gray.white_100, bg = cp.ui.bg, bold = false, italic = false },
+		VertSplit                = { fg = cp.colors.g100, bg = cp.ui.bg, bold = false, italic = false },
+		WinSeparator             = { fg = cp.colors.g100, bg = cp.ui.bg, bold = false, italic = false },
 
 		Folded                   = { fg = cp.ui.fg, bg = cp.ui.bg_popup },
 
@@ -44,31 +44,31 @@ return function(cp)
 		PmenuSbar                = { bg = cp.ui.fg_popup },
 		PmenuThumb               = { bg = cp.ui.fg_float },
 
-		Ok                       = { fg = cp.diagnostics.ok },
-		Info                     = { fg = cp.diagnostics.info },
-		Hint                     = { fg = cp.diagnostics.hint },
-		Warn                     = { fg = cp.diagnostics.warn },
-		Error                    = { fg = cp.diagnostics.error },
+		Ok                       = { fg = cp.colors.diagnostics.ok },
+		Info                     = { fg = cp.colors.diagnostics.info },
+		Hint                     = { fg = cp.colors.diagnostics.hint },
+		Warn                     = { fg = cp.colors.diagnostics.warn },
+		Error                    = { fg = cp.colors.diagnostics.error },
 
 		-- TODO: Maybe add config option which states if bg is transparent and if is then enable the bg colors additionally
 		-- DiagnosticUnderlineWarn  = { bg = cp.ui.bg_popup, underline = true, sp = cp.diagnostics.warn, bold = true },
 		-- DiagnosticUnderlineError = { bg = cp.ui.bg_popup, underline = true, sp = cp.diagnostics.error, bold = true },
 
 		DiagnosticInfo           = { link = "Info" },
-		DiagnosticUnderlineInfo  = { underline = true, sp = cp.diagnostics.info, bold = true },
+		DiagnosticUnderlineInfo  = { underline = true, sp = cp.colors.diagnostics.info, bold = true },
 		DiagnosticHint           = { link = "Hint" },
-		DiagnosticUnderlineHint  = { underline = true, sp = cp.diagnostics.hint, bold = true },
+		DiagnosticUnderlineHint  = { underline = true, sp = cp.colors.diagnostics.hint, bold = true },
 		DiagnosticWarn           = { link = "Warn" },
-		DiagnosticUnderlineWarn  = { underline = true, sp = cp.diagnostics.warn, bold = true },
+		DiagnosticUnderlineWarn  = { underline = true, sp = cp.colors.diagnostics.warn, bold = true },
 		DiagnosticError          = { link = "Error" },
-		DiagnosticUnderlineError = { underline = true, sp = cp.diagnostics.error, bold = true },
+		DiagnosticUnderlineError = { underline = true, sp = cp.colors.diagnostics.error, bold = true },
 
-		DiffAdd                  = { fg = cp.diagnostics.git_add, bg = cp.diagnostics.git_add_dimm, bold = true },
-		DiffChange               = { fg = cp.diagnostics.git_mod, bg = cp.diagnostics.git_mod_dimm, bold = true },
-		DiffDelete               = { fg = cp.diagnostics.git_del, bg = cp.diagnostics.git_del_dimm, bold = true },
+		DiffAdd                  = { fg = cp.colors.misc.add, bg = cp.colors.misc.add_dimm, bold = true },
+		DiffChange               = { fg = cp.colors.misc.mod, bg = cp.colors.misc.mod_dimm, bold = true },
+		DiffDelete               = { fg = cp.colors.misc.del, bg = cp.colors.misc.del_dimm, bold = true },
 
-		SpellBad                 = { undercurl = true, sp = cp.diagnostics.error, bold = true },
-		SpellCap                 = { undercurl = true, sp = cp.diagnostics.warn },
+		SpellBad                 = { undercurl = true, sp = cp.colors.diagnostics.error, bold = true },
+		SpellCap                 = { undercurl = true, sp = cp.colors.diagnostics.warn },
 		SpellRare                = { bold = true },
 		SpellLocal               = {},
 

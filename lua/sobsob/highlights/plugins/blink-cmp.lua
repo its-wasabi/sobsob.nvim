@@ -4,7 +4,7 @@ return function(cp)
 		BlinkCmpMenu                = { link = "Pmenu" },
 		BlinkCmpMenuBorder          = { fg = cp.ui.fg_popup },
 		BlinkCmpMenuSelection       = { link = "Visual", bold = true },
-		BlinkCmpLabel               = { fg = cp.ui.text_colored },
+		BlinkCmpLabel               = { fg = cp.ui.fg_colored },
 		BlinkCmpLabelMatch          = { fg = cp.colors.magenta, bold = true },
 		BlinkCmpLabelDeprecated     = { fg = cp.ui.fg_popup, strikethrough = true },
 		BlinkCmpLabelDescription    = { fg = cp.ui.fg_popup },
@@ -34,7 +34,7 @@ return function(cp)
 		BlinkCmpKindKeyword         = { fg = cp.syntax.keywords },           -- cyan
 		BlinkCmpKindUnit            = { fg = cp.syntax.numbers },            -- blue
 		BlinkCmpKindValue           = { fg = cp.syntax.strings },            -- green
-		BlinkCmpKindSnippet         = { fg = cp.gradient.lv1 },              -- gradient pink, visually distinct
+		BlinkCmpKindSnippet         = { fg = cp.colors.gradient.lv1 },       -- gradient pink, visually distinct
 		BlinkCmpKindColor           = { fg = cp.syntax.special },            -- pink
 		BlinkCmpKindFile            = { fg = cp.colors.teal },               -- teal, not cyan (avoids keyword clash)
 		BlinkCmpKindFolder          = { fg = cp.colors.teal, bold = true },  -- teal bold to stand out from file

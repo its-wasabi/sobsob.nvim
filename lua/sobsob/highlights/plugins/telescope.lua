@@ -8,7 +8,7 @@ return function(cp)
 		TelescopePromptCounter = { fg = cp.colors.purple },
 
 		TelescopeSelection     = { reverse = true, bold = true },
-		TelescopeMatching      = { fg = cp.colors.magenta, bold = true },
+		TelescopeMatching      = { fg = cp.ui.fg_colored, bold = true },
 		TelescopePreviewLine   = { reverse = true, bold = true },
 	}
 end
