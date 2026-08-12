@@ -1,17 +1,17 @@
 return function(cp)
 	return {
 		RenderMarkdownH1         = { fg = cp.ui.fg, bold = true },
-		RenderMarkdownH1Bg       = { bg = cp.colors.gradient.lv1, fg = cp.ui.bg_solid, bold = true },
+		RenderMarkdownH1Bg       = { bg = cp.colors.gradient.lv1_dimm, fg = cp.ui.bg_solid, bold = true },
 		RenderMarkdownH2         = { fg = cp.ui.fg, bold = true },
-		RenderMarkdownH2Bg       = { bg = cp.colors.gradient.lv2, fg = cp.ui.bg_solid, bold = true },
+		RenderMarkdownH2Bg       = { bg = cp.colors.gradient.lv2_dimm, fg = cp.ui.bg_solid, bold = true },
 		RenderMarkdownH3         = { fg = cp.ui.fg, bold = true },
-		RenderMarkdownH3Bg       = { bg = cp.colors.gradient.lv3, fg = cp.ui.bg_solid, bold = true },
+		RenderMarkdownH3Bg       = { bg = cp.colors.gradient.lv3_dimm, fg = cp.ui.bg_solid, bold = true },
 		RenderMarkdownH4         = { fg = cp.ui.fg, bold = true },
-		RenderMarkdownH4Bg       = { bg = cp.colors.gradient.lv4, fg = cp.ui.bg_solid, bold = true },
+		RenderMarkdownH4Bg       = { bg = cp.colors.gradient.lv4_dimm, fg = cp.ui.bg_solid, bold = true },
 		RenderMarkdownH5         = { fg = cp.ui.fg, bold = true },
-		RenderMarkdownH5Bg       = { bg = cp.colors.gradient.lv5, fg = cp.ui.bg_solid, bold = true },
+		RenderMarkdownH5Bg       = { bg = cp.colors.gradient.lv5_dimm, fg = cp.ui.bg_solid, bold = true },
 		RenderMarkdownH6         = { fg = cp.ui.fg, bold = true },
-		RenderMarkdownH6Bg       = { bg = cp.colors.gradient.lv6, fg = cp.ui.bg_solid, bold = true },
+		RenderMarkdownH6Bg       = { bg = cp.colors.gradient.lv6_dimm, fg = cp.ui.bg_solid, bold = true },
 
 		RenderMarkdownMath       = { fg = cp.colors.cyan },
 
