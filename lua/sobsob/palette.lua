@@ -86,26 +86,26 @@ local colors = {
 	green       = "#00d85f",
 
 	gradient    = {
-		lv1      = "#ff9dff",
-		lv1_dimm = "#2a1430",
+		lv1      = "#26f0b0",
+		lv1_dimm = "#0a3023",
 
-		lv2      = "#ff4fd8",
-		lv2_dimm = "#33122a",
+		lv2      = "#17c0ff",
+		lv2_dimm = "#052633",
 
-		lv3      = "#d43bff",
-		lv3_dimm = "#361540",
+		lv3      = "#757aff",
+		lv3_dimm = "#171833",
 
-		lv4      = "#8826ff",
-		lv4_dimm = "#2a1145",
+		lv4      = "#c85ef7",
+		lv4_dimm = "#281331",
 
-		lv5      = "#5e2fff",
-		lv5_dimm = "#1f1048",
+		lv5      = "#ff479c",
+		lv5_dimm = "#330e1f",
 
-		lv6      = "#3a2bff",
-		lv6_dimm = "#160f45",
+		lv6      = "#ff8c3a",
+		lv6_dimm = "#331c0b",
 
-		lv7      = "#3f39d8",
-		lv7_dimm = "#141735",
+		lv7      = "#ffdb29",
+		lv7_dimm = "#332b08",
 	},
 
 	diagnostics = {
