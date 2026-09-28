@@ -1,17 +1,20 @@
 return function(cp)
+	local prompt_bg = cp.ui.bg_popup;
+	local normal_bg = cp.ui.bg_float;
+	local preview_bg = cp.ui.bg_shadow;
+
 	return {
-		TelescopeNormal = { fg = cp.ui.fg, bg = cp.ui.bg_float },
-		TelescopeBorder = { link = "TelescopeNormal" },
-		TelescopeTitle = { link = "TelescopeBorder" },
+		TelescopePromptNormal = { fg = cp.ui.fg_colored, bg = prompt_bg },
+		TelescopePromptBorder = { fg = cp.ui.fg_colored, bg = prompt_bg },
+		TelescopePromptTitle = { fg = cp.ui.fg_colored, bg = prompt_bg },
+		TelescopePromptPrefix = { fg = cp.ui.fg_colored, bg = prompt_bg },
 
+		TelescopeNormal = { fg = cp.ui.fg, bg = normal_bg },
+		TelescopeBorder = { fg = cp.ui.fg, bg = normal_bg },
+		TelescopeTitle = { fg = cp.ui.fg_colored, bg = normal_bg },
 
-		TelescopePromptNormal  = { fg = cp.ui.fg_colored, bg = cp.ui.bg_popup },
-		TelescopePromptBorder  = { link = "TelescopePromptNormal" },
-		TelescopePromptTitle   = { link = "TelescopePromptBorder" },
-		TelescopePromptPrefix  = { link = "TelescopePromptTitle" },
-
-		TelescopePreviewNormal = { fg = cp.ui.fg, bg = cp.ui.bg_shadow },
-		TelescopePreviewBorder = { link = "TelescopePreviewNormal" },
-		TelescopePreviewTitle  = { link = "TelescopePreviewBorder" },
+		TelescopePreviewNormal = { fg = cp.ui.fg, bg = preview_bg },
+		TelescopePreviewBorder = { fg = cp.ui.fg, bg = preview_bg },
+		TelescopePreviewTitle = { fg = cp.ui.fg_colored, bg = preview_bg },
 	}
 end
