@@ -1,6 +1,7 @@
 return function(cp)
 	return {
 		["@lsp.type.macro.rust"]    = { link = "Function" },
+		["@lsp.mod.attribute.rust"] = { bold = true },
 		["@lsp.type.lifetime.rust"] = { link = "Special" },
 
 

@@ -1,14 +1,17 @@
 return function(cp)
 	return {
-		TelescopeNormal        = { fg = cp.ui.fg, bg = cp.ui.bg },
-		TelescopeBorder        = { fg = cp.ui.fg_float },
-		TelescopeTitle         = { fg = cp.ui.fg },
+		TelescopeNormal = { fg = cp.ui.fg, bg = cp.ui.bg_float },
+		TelescopeBorder = { link = "TelescopeNormal" },
+		TelescopeTitle = { link = "TelescopeBorder" },
 
-		TelescopePromptNormal  = { fg = cp.colors.purple },
-		TelescopePromptCounter = { fg = cp.colors.purple },
 
-		TelescopeSelection     = { reverse = true, bold = true },
-		TelescopeMatching      = { fg = cp.ui.fg_colored, bold = true },
-		TelescopePreviewLine   = { reverse = true, bold = true },
+		TelescopePromptNormal  = { fg = cp.ui.fg_colored, bg = cp.ui.bg_popup },
+		TelescopePromptBorder  = { link = "TelescopePromptNormal" },
+		TelescopePromptTitle   = { link = "TelescopePromptBorder" },
+		TelescopePromptPrefix  = { link = "TelescopePromptTitle" },
+
+		TelescopePreviewNormal = { fg = cp.ui.fg, bg = cp.ui.bg_shadow },
+		TelescopePreviewBorder = { link = "TelescopePreviewNormal" },
+		TelescopePreviewTitle  = { link = "TelescopePreviewBorder" },
 	}
 end
